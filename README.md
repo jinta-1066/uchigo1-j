@@ -1,1 +1,1 @@
-# uchigo 1st J.H.S. Students Council
+# Uchigo 1st J.H.S. Students Council
