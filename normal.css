@@ -511,8 +511,8 @@ body {
 
 .load_logo {
   opacity: 0;
-  width: 30%;
-  min-width: 300px;
+  width: 80%;
+  max-width: 560px;
   animation: logo_fade 2s 0.5s forwards;
 }
 
