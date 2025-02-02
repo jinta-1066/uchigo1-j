@@ -337,6 +337,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  
+  .section {
+    width: 100%;
+  }
+  
 }
 
 @media screen and (max-width: 480px) {
