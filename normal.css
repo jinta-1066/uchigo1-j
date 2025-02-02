@@ -1,1 +1,647 @@
+/* cssの書き順は以下を参照 */
+/* https://zenn.dev/web_tips/articles/f1167f4314dcb3 */
 
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -khtml-user-drag: none;
+  scroll-behavior: smooth;
+}
+
+a { transition: 0.2s; }
+a[disabled] { pointer-events: none; }
+
+.t1 { font-size: 50px; }
+.t2 { font-size: 35px; }
+.t3 { font-size: 30px; }
+.t4 { font-size: 22px; }
+.t5 { font-size: 17.5px; }
+
+ul { margin: 0; padding: 0; }
+li { list-style: none; }
+
+body {
+  margin: 0;
+  background: #fff;
+  font-family: Zen Kaku Gothic;
+  text-align: center;
+}
+
+
+/* ここからヘッダー */
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  width: 94%;
+  height: 100px;
+  padding: 0 3%;
+  border-bottom: 2px solid #000;
+  background: #fff;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logo img {
+  width: 300px;
+  aspect-ratio: 3 / 1;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+}
+  
+.header_nav li {
+  position: relative;
+}
+
+.header_a {
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.header_nav a {
+  margin: 0 20px;
+}
+
+.header_nav > li > a {
+  line-height: 100px;
+}
+
+.header_a:hover {
+  opacity: 0.5;
+}
+
+.header_blank {
+  padding-left: 50px;
+}
+
+.header_nav_sub {
+  display: none;
+  position: absolute;
+  width: 150px;
+  margin: 0;
+  padding: 0 0 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.header_nav li:hover ul {
+  display: block;
+}
+
+.header_nav_sub li {
+  padding: 10px 0 0;
+  text-align: start;
+}
+
+/* ここからハンバーガーメニュー */
+
+.header_ham {
+  display: none;
+}
+
+.hh_input {
+  display: none;
+}
+
+.hh_open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hh_open:hover {
+  opacity: 0.5;
+}
+
+.hh_open span,
+.hh_open span::before,
+.hh_open span::after {
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  border-radius: 3px;
+  background: #000;
+  content: '';
+  transition: 0.5s;
+}
+
+.hh_open span::before {
+  bottom: 8px;
+}
+
+.hh_open span::after {
+  top: 8px;
+}
+
+#hh_input:checked ~ .hh_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+#hh_input:checked ~ .hh_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+#hh_input:checked ~ .hh_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background: #fff;
+}
+
+#hh_input:checked :rote {
+  overflow: hidden;
+}
+
+.hh_nav {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background: #000;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.hh_nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hh_nav_d {
+  width: 80%;
+  margin: 0 5%;
+}
+
+.hh_nav_h {
+  display: block;
+  margin: 45px auto 30px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.hh_nav_con {
+  width: 80%;
+  margin: 0 0 20px 5%;
+}
+
+.hh_nav_con dl {
+  position: relative;
+  margin: 0;
+}
+
+.hh_nav_con dt {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1.5px dashed #aaa;
+}
+
+.hh_nav_con dt a {
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+.hh_nav_con dl:not(.hh_dl_xx) > dt a::after {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  content: '';
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+.hh_dl_xx dt a::before,
+.hh_dl_xx dt a::after {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  content: '';
+  width: 18px;
+  height: 1.5px;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.hh_dl_xx dt a::after {
+  transform: rotate(-90deg);
+}
+
+.hh_dl_xx:hover a::after {
+  top: 24px;
+  transform: rotate(0deg);
+}
+
+.hh_nav_con dd {
+  display: none;
+  margin-left: 0;
+  background: #333;
+}
+
+.hh_nav_con dd a {
+  display: block;
+  margin: 0 auto 12px 0;
+  font-size: 14px;
+}
+
+.hh_nav_con dd li:first-child::before,
+.hh_nav_con dd li:last-child::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 12px;
+}
+
+.hh_dl_xx:hover dd {
+  display: block;
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#hh_input:checked ~ .hh_nav {
+  left: 0;
+}
+
+
+/* その他コンテンツ */
+
+
+.pagetop {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+
+.pagetop_a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  margin: 0 30px 30px auto;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pagetop_a:hover {
+  background: #000;
+}
+
+.pagetop_d {
+  transform: translate(0, 20%) rotate(-45deg);
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #000;
+  border-right: 3px solid #000;
+  transition: 0.2s;
+}
+
+.pagetop_a:hover .pagetop_d {
+  border-color: #fff;
+}
+
+
+/* ここからフッター */
+
+
+.footer {
+  background: #000;
+  color: #fff;
+}
+
+.foo01 {
+  padding: 25px 10px;
+  background: #333;
+}
+
+.foo02 {
+  display: flex;
+  justify-content: center;
+  algin-items: center;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.foo03 {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1.5px solid #888;
+}
+
+
+/* 第一フッター */
+
+
+.foo01 * {
+  display: inline-block;
+  padding: 10px 40px;
+  font-size: 14px;
+}
+
+.foo01 a {
+  border: 2px solid #fff;
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+}
+
+.foo01 a:hover {
+  background: #333;
+  color: #fff;
+}
+
+
+/* 第二フッター */
+
+
+.foo02 > * {
+  display: inline-block;
+  margin: auto 60px;
+}
+
+.foo02 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.foo02 > div {
+  display: inline-block;
+  width: 175px;
+  margin: 0 15px;
+  padding: 0;
+  text-align: start;
+}
+
+.foo02 dl {
+  margin: 0 auto auto;
+}
+
+.foo02_xx dl {
+  min-height: 40px;
+  margin-bottom: 40px;
+}
+
+.foo02 dt {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.foo02 dt a:hover {
+  opacity: 0.6;
+}
+
+.foo02 dt::after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+}
+
+.foo02 dd {
+  margin-left: 0;
+}
+
+.foo02 li {
+  margin: 4px auto 4px 0;
+  font-size: 10px;
+}
+
+.foo02 dd a:hover {
+  text-decoration: underline;
+}
+
+
+/* 第三フッター */
+
+
+.foo03_d {
+  margin: 0 auto;
+}
+
+.foo03_d > * {
+  display: inline-block;
+  margin: 0 40px;
+}
+
+.foo03 p {
+  line-height: 80px;
+}
+
+.foo03_home {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.foo03_home:hover {
+  opacity: 0.6;
+}
+
+.foo03_copy {
+  font-size: 11px;
+}
+
+
+/* ここからその他 */
+/* ここから開いた時表示するロゴ */
+
+
+.load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  animation: fadeOut 1.5s 2.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.load_logo {
+  opacity: 0;
+  width: 30%;
+  animation: logo_fade 2s 0.5s forwards;
+}
+
+@keyframes logo_fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* ここからレスポンシブデザイン */
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px) {
+  
+  .t1 { font-size: 45px; }
+  .t2 { font-size: 30px; }
+  .t3 { font-size: 28px; }
+  .t4 { font-size: 20px; }
+  .t5 { font-size: 17px; }
+  
+  /* ここからヘッダー */
+  
+  .header {
+    height: 90px;
+  }
+  
+  .logo img {
+    width: 270px;
+  }
+  
+  .header_a {
+    font-size: 15px;
+  }
+  
+  .header_nav > li > a {
+    line-height: 90px;
+  }
+  
+  .header_nav_sub {
+    padding: 0 0 8px;
+  }
+  
+  .header_nav_sub li {
+    padding: 8px 0 0;
+  }
+  
+  /* その他コンテンツ */
+    
+  /* ここからフッター */ 
+  
+  /* 第一フッター */
+  
+  /* 第二フッター */
+  
+  /* 第三フッター */
+  
+  .foo03 p {
+    line-height: 60px;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 960px) {
+  
+  .t1 { font-size: 35px; }
+  .t2 { font-size: 28px; }
+  .t3 { font-size: 22px; }
+  .t4 { font-size: 17px; }
+  .t5 { font-size: 16px; }
+  
+  
+  .header {
+    height: 80px;
+  }
+  
+  .logo img {
+    width: 240px;
+  }
+  
+  .header_nav {
+    display: none;
+  }
+  
+  .header_ham {
+    display: flex;
+  }
+  
+  .pagetop {
+    position: static;
+  }
+  
+  /* フッター */
+  
+  
+  .foo02 {
+    display: none;
+  }
+  
+  .foo03 {
+    border: none;
+  }
+  
+  .foo03_home {
+    display: none;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 480px) {
+}
