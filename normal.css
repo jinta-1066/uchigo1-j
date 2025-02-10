@@ -183,10 +183,6 @@ body {
   background: #fff;
 }
 
-#hh_input:checked :rote {
-  overflow: hidden;
-}
-
 .hh_nav {
   position: fixed;
   top: 0;
@@ -194,7 +190,7 @@ body {
   z-index: 99;
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   background: #000;
   color: #fff;
   transition: 0.5s;
