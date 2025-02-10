@@ -1,4 +1,6 @@
-/* cssの書き順は以下を参照 https://zenn.dev/web_tips/articles/f1167f4314dcb3 */
+/* cssの書き順は以下を参照 */
+/* https://zenn.dev/web_tips/articles/f1167f4314dcb3 */
+
 
 * {
   user-select: none;
@@ -22,10 +24,21 @@ a[disabled] { pointer-events: none; }
 ul { margin: 0; padding: 0; }
 li { list-style: none; }
 
+html {
+  font-family: Zen Kaku Gothic;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html::-webkit-scrollbar:hover {
+  display: block;
+}
+
 body {
   margin: 0;
   background: #fff;
-  font-family: Zen Kaku Gothic;
   text-align: center;
 }
 
@@ -230,7 +243,7 @@ body {
   text-decoration: none;
 }
 
-.hh_nav_con dl:not(.hh_dl_xx) > dt a::after {
+.hh_nav_con dl:not(.hh_dl_xx) dt a::after {
   position: absolute;
   top: 18px;
   right: 25px;
@@ -258,11 +271,6 @@ body {
   transform: rotate(-90deg);
 }
 
-.hh_dl_xx:hover a::after {
-  top: 24px;
-  transform: rotate(0deg);
-}
-
 .hh_nav_con dd {
   display: none;
   margin-left: 0;
@@ -275,6 +283,15 @@ body {
   font-size: 14px;
 }
 
+.hh_nav_input:checked ~ dd {
+  display: block;
+}
+
+.hh_nav_input:checked ~ label a::after {
+  top: 24px;
+  transform: rotate(0deg);
+}
+
 .hh_nav_con dd li:first-child::before,
 .hh_nav_con dd li:last-child::after {
   display: block;
@@ -283,13 +300,247 @@ body {
   height: 12px;
 }
 
-.hh_dl_xx:hover dd {
-  display: block;
-}
-
 /* アイコンがクリックされたらメニューを表示 */
 #hh_input:checked ~ .hh_nav {
   left: 0;
+}
+
+
+/* ここからメイン */
+/* ここからホーム */
+
+
+.home {
+  margin: 0 50px 100px;
+}
+
+.home_img {
+  width: 90%;
+}
+
+.home p {
+  margin: 5px 0 0;
+  font-weight: 700;
+}
+
+
+/* ここからコンテンツ */
+/* ここから各セクションの設定（全体） */
+
+
+.section {
+  position: relative;
+  z-index: 1;
+  width: 75%;
+  max-width: 960px;
+  min-width: 600px;
+  margin: 100px auto;
+}
+
+.sec01 {
+  border-radius: 100px 0;
+  background: #eee;
+}
+
+.sec02 {
+  outline: 15px ridge #eee;
+  outline-offset: -15px;
+}
+
+.sec03 {
+  background: radial-gradient(#eee 5px, #fff 5px);
+  background-size: 30px 30px;
+}
+
+.sec04 {
+  background: repeating-linear-gradient(-45deg, #eee 0, #eee 25px, #fff 25px, #fff 50px);
+}
+
+.heading {
+  margin: 0 auto 20px;
+}
+
+.section > *:first-child::before,
+.section > *:last-child::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 40px;
+}
+
+.viewmore {
+  display: block;
+  width: 140px;
+  height: 26px;
+  margin: auto;
+  color: #000;
+  font-size: 18px;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.viewmore:hover {
+  opacity: 0.5;
+}
+
+.viewmore > * {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.vm_arrow {
+  transform: translate(0, 10%) rotate(45deg);
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+
+/* ここから各セクションの設定（詳細） */
+/* 第一セクション */
+
+
+.news_ul {
+  width: 80%;
+  max-width: 600px;
+  margin: -10px auto 40px;
+}
+
+.news_li {
+  margin: 0 auto;
+  border-bottom: 1.5px solid #000;
+  text-align: start;
+  transition: 0.3s;
+}
+
+.news_li a {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  text-decoration: none;
+}
+
+.news_li a:hover {
+  background: #aaa;
+}
+
+.news_data::before,
+.news_text::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 15px;
+}
+
+.news_data {
+  margin: 0 10px 2px;
+  font-size: 14px;
+}
+
+.news_text {
+  margin: 0 20px;
+  overflow: hidden;
+  font-size: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* 第二セクション */
+
+
+.ab_text {
+  width: 75%;
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+
+
+/* 第三セクション */
+
+
+.cal_i {
+  width: 75%;
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  border: none;
+}
+
+.cal_a {
+  display: none;
+  width: 300px;
+  margin: 10px auto;
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  line-height: 45px;
+}
+
+.cal_a:hover {
+  background: #fff;
+  color: #000;
+}
+
+
+/* 第四・第五セクション */
+
+
+.com_ul {
+  width: 88%;
+  max-width: 816px;
+  margin: 0 auto;
+}
+
+.com_ul li {
+  display: inline-block;
+  width: 192px;
+  height: 192px;
+  margin: 0 3.5px;
+}
+
+.com_a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  color: #000;
+  text-decoration: none;
+}
+
+.com_b {
+  border: 1.5px solid #000;
+  background: #fff;
+}
+
+.com_img_d {
+  width: 192px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid #888;
+}
+
+.com_img {
+  width: 100%;
+  object-fit: contain;
+  transition: 0.25s;
+}
+
+.com_b:hover .com_img {
+  transform: scale(1.1, 1.1);
+}
+
+.com_t {
+  margin: 0 auto;
+  line-height: 30px;
+  font-weight: 700;
 }
 
 
@@ -485,7 +736,7 @@ body {
 
 
 .load {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -511,8 +762,8 @@ body {
 
 .load_logo {
   opacity: 0;
-  width: 80%;
-  max-width: 560px;
+  width: 30%;
+  min-width: 300px;
   animation: logo_fade 2s 0.5s forwards;
 }
 
@@ -575,6 +826,32 @@ body {
     padding: 8px 0 0;
   }
   
+  /* ここからメイン */
+  /* ここから各セクションの設定（全体） */
+  
+  /* ここから各セクションの設定（詳細） */
+  /* 第一セクション */
+  
+  .news_data {
+    font-size: 13px;
+  }
+  
+  .news_text {
+    font-size: 18px;
+  }
+
+/* 第二セクション */
+  
+/* 第三・四セクション */
+  
+  .com_ul li:last-child {
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+  }
+  
+  
   /* その他コンテンツ */
     
   /* ここからフッター */ 
@@ -619,6 +896,58 @@ body {
     display: flex;
   }
   
+  /* ここからメイン */
+  /* ここから各セクションの設定（全体） */
+  /* ここから各セクションの設定（詳細） */
+  /* 第一セクション */
+  
+  .news_data {
+    font-size: 13px;
+  }
+  
+  .news_text {
+    font-size: 17px;
+  }
+
+/* 第二セクション */
+  
+  
+  .cal_i {
+    display: none;
+  }
+  
+  .cal_a {
+    display: block;
+  }
+  
+  .com_ul {
+    justify-content: space-between;
+  }
+  
+  .com_ul li:last-child {
+    margin: 30px auto 0;
+  }
+  
+  .com_ul li {
+    display: block;
+    width: 100%;
+    height: 108px;
+    margin: 0 0 10px;
+  }
+  
+  .com_b > * {
+    display: inline-block;
+  }
+  
+  .com_img_d {
+    border-right: 1px solid #888;
+    border-bottom: none;
+  }
+  
+  .com_t {
+    margin: auto 20px;
+  }
+  
   .pagetop {
     position: static;
   }
@@ -641,6 +970,10 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  
+  .section {
+    min-width: 100%;
+  }
 }
 
 @media screen and (max-width: 480px) {
